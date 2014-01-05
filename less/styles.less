@@ -1,0 +1,103 @@
+@import "mixins.less";
+@import "variables.less";
+@import "960.less";
+@import "normalize.less";
+
+
+/* Drop Down Menu */
+.dropDownMenu {
+    padding: 8px;
+    position: relative;
+    cursor: pointer;
+    .round-corners-1;
+    .gradient-color-1;
+}
+.dropDownMenu:before,
+.dropDownMenu:after {
+    content:"";
+    position: absolute;
+    right: 10px;
+    width: 0; 
+    height: 0;
+    display: block; 
+}
+.dropDownMenu {
+    &:before {
+	    border-left: 5px solid transparent;
+	    border-right: 5px solid transparent;	
+	    border-bottom: 5px solid black;
+        top: 9px;
+    }
+    &:after {
+	    border-left: 5px solid transparent;
+	    border-right: 5px solid transparent;
+	    border-top: 5px solid black;
+        bottom:9px;
+    }
+}
+.ie7 .dropDownMenu{ /* ie7 support */
+    *background: @brand-color-3 url(../img/icon-dropdown.png) 97% 8px no-repeat;
+    
+}
+.dropDownMenu-options {
+    position: absolute;
+    top: 27px;
+    left: -1px;
+    width: 100%;
+    background-color: @brand-color-3;
+    z-index:3;
+    .box-shadow-1;
+    .round-corners-2;
+    display: none;
+    
+    ul { 
+        margin:0;
+        padding:0;
+    }
+
+    li {
+        padding:5px 10px;
+        list-style: none;
+
+        &:hover {
+            background: @brand-color-2;
+        }
+        
+        &:hover:last-child {
+            .round-corners-2;
+        }            
+    }
+}
+.dropDownMenu-selected--lastItem {
+    padding-right: 20px;
+}
+.dropDownMenu-options.is-selected {
+	display: block;
+}
+.dropDownMenu.is-open {
+	background: @brand-color-3;
+}
+
+.dropDownMenu,
+.dropDownMenu-options,
+.dropDownMenu-options li,
+.dropDownMenu-selected {
+    &:extend(.clearFix all);
+}
+
+/* OOCSS Borders */
+.borderPrimary {
+    border: @border-style-1 @border-width-1 @brand-color-1;
+}
+.borderPrimary--top {
+    border-top: @border-style-1 @border-width-1 @brand-color-1;
+}
+.borderPrimary--right {
+    border-right: @border-style-1 @border-width-1 @brand-color-1;
+}
+.borderPrimary--bottom {
+    border-bottom: @border-style-1 @border-width-1 @brand-color-1;
+}
+.borderPrimary--left {
+    border-left: @border-style-1 @border-width-1 @brand-color-1;
+}
